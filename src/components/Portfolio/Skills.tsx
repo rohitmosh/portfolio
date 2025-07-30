@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Code, Database, Globe, Wrench } from 'lucide-react';
+import { Code, Database, Globe, Wrench, Star } from 'lucide-react';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -26,73 +26,69 @@ const Skills = () => {
     {
       title: 'Programming Languages',
       icon: Code,
+      color: 'from-blue-400 to-blue-600',
       skills: [
-        { name: 'JavaScript', level: 90 },
-        { name: 'TypeScript', level: 85 },
-        { name: 'Python', level: 80 },
-        { name: 'Java', level: 75 },
-        { name: 'C++', level: 70 },
+        { name: 'JavaScript', featured: true },
+        { name: 'TypeScript', featured: true },
+        { name: 'Python', featured: false },
+        { name: 'Java', featured: false },
+        { name: 'C++', featured: false },
       ],
     },
     {
       title: 'Web Technologies',
       icon: Globe,
+      color: 'from-green-400 to-green-600',
       skills: [
-        { name: 'React', level: 90 },
-        { name: 'Next.js', level: 85 },
-        { name: 'Node.js', level: 80 },
-        { name: 'HTML/CSS', level: 95 },
-        { name: 'Tailwind CSS', level: 90 },
+        { name: 'React', featured: true },
+        { name: 'Next.js', featured: true },
+        { name: 'Node.js', featured: false },
+        { name: 'HTML/CSS', featured: true },
+        { name: 'Tailwind CSS', featured: true },
       ],
     },
     {
       title: 'Databases & Tools',
       icon: Database,
+      color: 'from-purple-400 to-purple-600',
       skills: [
-        { name: 'PostgreSQL', level: 80 },
-        { name: 'MongoDB', level: 75 },
-        { name: 'Git', level: 90 },
-        { name: 'Docker', level: 70 },
-        { name: 'AWS', level: 65 },
+        { name: 'PostgreSQL', featured: false },
+        { name: 'MongoDB', featured: false },
+        { name: 'Git', featured: true },
+        { name: 'Docker', featured: false },
+        { name: 'AWS', featured: false },
       ],
     },
     {
       title: 'Development Tools',
       icon: Wrench,
+      color: 'from-orange-400 to-orange-600',
       skills: [
-        { name: 'VS Code', level: 95 },
-        { name: 'Figma', level: 80 },
-        { name: 'Postman', level: 85 },
-        { name: 'Linux', level: 75 },
-        { name: 'Webpack', level: 70 },
+        { name: 'VS Code', featured: true },
+        { name: 'Figma', featured: false },
+        { name: 'Postman', featured: false },
+        { name: 'Linux', featured: false },
+        { name: 'Webpack', featured: false },
       ],
     },
   ];
 
-  const ProgressBar = ({ skill, delay = 0 }: { skill: { name: string; level: number }; delay?: number }) => {
-    const [progress, setProgress] = useState(0);
-
-    useEffect(() => {
-      if (isVisible) {
-        const timer = setTimeout(() => {
-          setProgress(skill.level);
-        }, delay);
-        return () => clearTimeout(timer);
-      }
-    }, [isVisible, skill.level, delay]);
-
+  const SkillTag = ({ skill, delay = 0 }: { skill: { name: string; featured: boolean }; delay?: number }) => {
     return (
-      <div className="mb-4">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-foreground font-medium">{skill.name}</span>
-          <span className="text-accent font-semibold">{skill.level}%</span>
+      <div
+        className={`group relative px-4 py-2 rounded-full border border-border/50 
+          bg-card hover:bg-accent hover:text-accent-foreground transition-all duration-300 
+          hover:scale-105 hover:shadow-glow cursor-default animate-fade-in
+          ${skill.featured ? 'ring-2 ring-accent/30 bg-accent/10' : ''}`}
+        style={{ animationDelay: `${delay}s` }}
+      >
+        <div className="flex items-center gap-2">
+          {skill.featured && <Star className="w-3 h-3 fill-accent text-accent" />}
+          <span className="text-sm font-medium">{skill.name}</span>
         </div>
-        <div className="progress-glow">
-          <div
-            className="progress-fill transition-all duration-1000 ease-out"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+        {skill.featured && (
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/10 to-accent-glow/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        )}
       </div>
     );
   };
@@ -117,20 +113,20 @@ const Skills = () => {
           {/* Skills grid */}
           <div className="grid md:grid-cols-2 gap-8">
             {skillCategories.map((category, categoryIndex) => (
-              <div key={category.title} className="card-glow">
+              <div key={category.title} className="card-glow p-6 rounded-xl">
                 <div className="flex items-center mb-6">
-                  <div className="bg-accent/20 p-3 rounded-lg mr-4">
-                    <category.icon className="text-accent" size={24} />
+                  <div className={`bg-gradient-to-r ${category.color} p-3 rounded-lg mr-4 shadow-glow`}>
+                    <category.icon className="text-white" size={24} />
                   </div>
-                  <h3 className="text-xl font-semibold">{category.title}</h3>
+                  <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <ProgressBar
+                    <SkillTag
                       key={skill.name}
                       skill={skill}
-                      delay={categoryIndex * 200 + skillIndex * 100}
+                      delay={categoryIndex * 0.1 + skillIndex * 0.05}
                     />
                   ))}
                 </div>
