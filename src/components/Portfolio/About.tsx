@@ -77,7 +77,6 @@ const About = () => {
                     <User className="text-accent" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Personal Details</h3>
                     <div className="space-y-1 text-muted-foreground">
                       <p><span className="text-foreground font-medium">Location:</span> Bangalore, KA</p>
                       <p><span className="text-foreground font-medium">Availability:</span> Open to opportunities</p>
@@ -95,7 +94,7 @@ const About = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Interests</h3>
                     <div className="flex flex-wrap gap-2">
-                      {['GenAI', 'UI/UX Design', 'Problem Solving', 'Team Management'].map((interest) => (
+                      {['GenAI', 'UI/UX Design', 'Problem Solving', 'Team Management', 'Graphic Design'].map((interest) => (
                         <span
                           key={interest}
                           className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"

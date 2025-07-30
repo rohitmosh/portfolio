@@ -1,4 +1,4 @@
-import { ArrowUp, Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
                 © 2025 Rohit Mohanty. All rights reserved.
               </p>
               <p className="text-sm text-muted-foreground flex items-center justify-center md:justify-start mt-1">
-                Made with <Heart className="text-red-500 mx-1 animate-pulse" size={16} /> lots of coffee.
+                Made with lots of coffee.
               </p>
             </div>
 

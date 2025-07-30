@@ -137,29 +137,7 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Additional skills */}
-          <div className="mt-12 text-center">
-            <h3 className="text-2xl font-semibold mb-6">Additional Skills</h3>
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {[
-                'Project Management',
-                'Team Collaboration',
-                'UI/UX Design',
-                'Graphic Design',
-                'Problem Solving',
-              ].map((skill, index) => (
-                <span
-                  key={skill}
-                  className={`px-4 py-2 bg-secondary hover:bg-accent hover:text-accent-foreground 
-                    text-secondary-foreground rounded-full text-sm transition-all duration-300 
-                    hover:scale-105 cursor-default animate-fade-in-up`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
