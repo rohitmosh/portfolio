@@ -19,25 +19,10 @@ const About = () => {
             {/* Left side - Main content */}
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a passionate Computer Science student with a love for creating innovative 
-                digital experiences. My journey in tech began with curiosity about how things work, 
-                and has evolved into a deep appreciation for clean code, user-centered design, 
-                and solving complex problems.
+                I’m a dedicated Computer Science student with a passion for building reliable, maintainable, and scalable solutions. I love learning new technologies and applying them through personal and academic projectswith a love for creating innovative 
+                digital experiences. 
               </p>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Currently pursuing my Bachelor's degree in Computer Science, I've gained hands-on 
-                experience through various projects and internships. I enjoy working with modern 
-                technologies and am always eager to learn new frameworks and tools that can help 
-                me build better solutions.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, you'll find me exploring the latest tech trends, contributing 
-                to open-source projects, or enjoying outdoor activities. I believe in continuous 
-                learning and am always looking for opportunities to grow both personally and professionally.
-              </p>
-
               {/* Download Resume button */}
               <div className="pt-4">
                 <a

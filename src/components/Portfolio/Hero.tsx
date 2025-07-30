@@ -8,7 +8,7 @@ const Hero = () => {
 
   const texts = [
     'Computer Science Student',
-    'Full Stack Developer',
+    'Web Developer',
     'Problem Solver',
     'Tech Enthusiast'
   ];
@@ -69,8 +69,8 @@ const Hero = () => {
 
           {/* Description */}
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up animate-delay-300">
-            Passionate about GenAI, Web Dev, and Graphic Design.
-            Currently pursuing my degree in Computer & Communication Engineering with a focus on full-stack development.
+            Passionate about GenAI, Problem Solving, and Graphic Design.
+            Currently pursuing my degree in Computer & Communication Engineering with a focus on Web Development.
           </p>
 
           {/* Action buttons */}
