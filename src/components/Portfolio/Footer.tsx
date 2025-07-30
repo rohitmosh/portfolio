@@ -13,10 +13,10 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center md:text-left mb-4 md:mb-0">
               <p className="text-muted-foreground">
-                © 2024 Alex Johnson. All rights reserved.
+                © 2025 Rohit Mohanty. All rights reserved.
               </p>
               <p className="text-sm text-muted-foreground flex items-center justify-center md:justify-start mt-1">
-                Made with <Heart className="text-red-500 mx-1 animate-pulse" size={16} /> and lots of coffee
+                Made with <Heart className="text-red-500 mx-1 animate-pulse" size={16} /> lots of coffee.
               </p>
             </div>
 
@@ -30,12 +30,7 @@ const Footer = () => {
             </button>
           </div>
 
-          {/* Additional footer content */}
-          <div className="mt-8 pt-8 border-t border-border text-center">
-            <p className="text-muted-foreground text-sm">
-              Built with React, TypeScript, and Tailwind CSS
-            </p>
-          </div>
+
         </div>
       </div>
     </footer>

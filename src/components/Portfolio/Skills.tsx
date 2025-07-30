@@ -31,7 +31,7 @@ const Skills = () => {
         { name: 'TypeScript', level: 85 },
         { name: 'Python', level: 80 },
         { name: 'Java', level: 75 },
-        { name: 'C++', level: 70 },
+        { name: 'C', level: 70 },
       ],
     },
     {
@@ -52,8 +52,8 @@ const Skills = () => {
         { name: 'PostgreSQL', level: 80 },
         { name: 'MongoDB', level: 75 },
         { name: 'Git', level: 90 },
-        { name: 'Docker', level: 70 },
-        { name: 'AWS', level: 65 },
+        { name: 'MySQL', level: 70 },
+        { name: 'Vercel', level: 65 },
       ],
     },
     {
@@ -62,9 +62,9 @@ const Skills = () => {
       skills: [
         { name: 'VS Code', level: 95 },
         { name: 'Figma', level: 80 },
-        { name: 'Postman', level: 85 },
+        { name: 'Adobe PS', level: 85 },
         { name: 'Linux', level: 75 },
-        { name: 'Webpack', level: 70 },
+        { name: 'PyCharm', level: 70 },
       ],
     },
   ];
@@ -85,7 +85,6 @@ const Skills = () => {
       <div className="mb-4">
         <div className="flex justify-between items-center mb-2">
           <span className="text-foreground font-medium">{skill.name}</span>
-          <span className="text-accent font-semibold">{skill.level}%</span>
         </div>
         <div className="progress-glow">
           <div
@@ -143,16 +142,11 @@ const Skills = () => {
             <h3 className="text-2xl font-semibold mb-6">Additional Skills</h3>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               {[
-                'Agile Development',
-                'UI/UX Design',
-                'API Development',
-                'Testing',
-                'DevOps',
-                'Mobile Development',
-                'Data Analysis',
-                'Problem Solving',
-                'Team Collaboration',
                 'Project Management',
+                'Team Collaboration',
+                'UI/UX Design',
+                'Graphic Design',
+                'Problem Solving',
               ].map((skill, index) => (
                 <span
                   key={skill}

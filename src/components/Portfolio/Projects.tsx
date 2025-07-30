@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { ExternalLink, Github, Filter } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
 
   const projects = [
     {
@@ -32,40 +30,7 @@ const Projects = () => {
       demoUrl: '#',
       githubUrl: '#',
     },
-    {
-      title: 'Smart Home Dashboard',
-      description: 'IoT dashboard for managing smart home devices with real-time monitoring, automation rules, and energy consumption tracking.',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
-      technologies: ['Vue.js', 'Express.js', 'MQTT', 'InfluxDB'],
-      category: 'Full Stack',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'This responsive portfolio website built with React and Tailwind CSS, featuring animations, dark theme, and optimized performance.',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-      category: 'Frontend',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
-    {
-      title: 'Data Visualization Tool',
-      description: 'Interactive data visualization platform for analyzing large datasets with custom charts, filters, and export capabilities.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-      technologies: ['D3.js', 'React', 'Python', 'Pandas'],
-      category: 'Data Science',
-      demoUrl: '#',
-      githubUrl: '#',
-    },
   ];
-
-  const categories = ['All', 'Full Stack', 'Frontend', 'Backend', 'Data Science'];
-
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
 
   return (
     <section id="projects" className="py-20 relative">
@@ -84,27 +49,9 @@ const Projects = () => {
             </p>
           </div>
 
-          {/* Filter buttons */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            <Filter className="text-accent mr-2" size={20} />
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                  activeFilter === category
-                    ? 'bg-accent text-accent-foreground shadow-glow'
-                    : 'bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground hover:scale-105'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
           {/* Projects grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <div
                 key={project.title}
                 className={`card-glow group animate-fade-in-up`}

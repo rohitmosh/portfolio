@@ -60,11 +60,11 @@ const About = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Education</h3>
-                    <p className="text-muted-foreground mb-1">Bachelor of Science in Computer Science</p>
-                    <p className="text-sm text-accent">University of Technology • Expected 2025</p>
+                    <p className="text-muted-foreground mb-1">Bachelor of Technology in Computer & Communication Engineering</p>
+                    <p className="text-sm text-accent">Manipal Institute of Technology, Manipal • Expected 2027</p>
                     <p className="text-sm text-muted-foreground mt-2">
-                      Relevant Coursework: Data Structures, Algorithms, Web Development, 
-                      Database Systems, Software Engineering
+                      Relevant Coursework: Data Structures and Algorithms, Object-Oriented Programming,
+                      Database Management Systems, Operating Systems, Information Security
                     </p>
                   </div>
                 </div>
@@ -79,9 +79,7 @@ const About = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Personal Details</h3>
                     <div className="space-y-1 text-muted-foreground">
-                      <p><span className="text-foreground font-medium">Location:</span> San Francisco, CA</p>
-                      <p><span className="text-foreground font-medium">Age:</span> 22</p>
-                      <p><span className="text-foreground font-medium">Languages:</span> English, Spanish</p>
+                      <p><span className="text-foreground font-medium">Location:</span> Bangalore, KA</p>
                       <p><span className="text-foreground font-medium">Availability:</span> Open to opportunities</p>
                     </div>
                   </div>
@@ -97,7 +95,7 @@ const About = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Interests</h3>
                     <div className="flex flex-wrap gap-2">
-                      {['Machine Learning', 'Open Source', 'Photography', 'Hiking', 'Gaming', 'Reading'].map((interest) => (
+                      {['GenAI', 'UI/UX Design', 'Problem Solving', 'Team Management'].map((interest) => (
                         <span
                           key={interest}
                           className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"

@@ -56,7 +56,7 @@ const Hero = () => {
           {/* Name */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up animate-delay-100">
             <span className="bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
-              Alex Johnson
+              Rohit Mohanty
             </span>
           </h1>
 
@@ -69,8 +69,8 @@ const Hero = () => {
 
           {/* Description */}
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up animate-delay-300">
-            Passionate about creating innovative solutions and building amazing web experiences. 
-            Currently pursuing my degree in Computer Science with a focus on full-stack development.
+            Passionate about GenAI, Web Dev, and Graphic Design.
+            Currently pursuing my degree in Computer & Communication Engineering with a focus on full-stack development.
           </p>
 
           {/* Action buttons */}
@@ -108,7 +108,7 @@ const Hero = () => {
               <Linkedin size={24} />
             </a>
             <a
-              href="mailto:alex@example.com"
+              href="mailto:rohitm6002@gmail.com"
               className="text-muted-foreground hover:text-accent transition-colors duration-300 hover:scale-110 transform"
             >
               <Mail size={24} />
