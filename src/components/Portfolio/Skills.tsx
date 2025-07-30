@@ -1,5 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
-import { Code, Database, Globe, Wrench, Star } from 'lucide-react';
+import { 
+  Code2, 
+  Database, 
+  Globe, 
+  Wrench, 
+  Palette, 
+  Cloud,
+  GitBranch,
+  Terminal,
+  Smartphone,
+  Settings,
+  Zap,
+  Brain
+} from 'lucide-react';
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,81 +35,154 @@ const Skills = () => {
     return () => observer.disconnect();
   }, []);
 
-  const skillCategories = [
-    {
-      title: 'Programming Languages',
-      icon: Code,
-      color: 'from-blue-400 to-blue-600',
-      skills: [
-        { name: 'JavaScript', featured: true },
-        { name: 'TypeScript', featured: true },
-        { name: 'Python', featured: false },
-        { name: 'Java', featured: false },
-        { name: 'C++', featured: false },
-      ],
+  const skills = [
+    // Large cards
+    { 
+      name: 'React & Next.js', 
+      icon: Code2, 
+      size: 'large',
+      gradient: 'from-blue-500 to-cyan-500',
+      description: 'Modern frontend frameworks'
     },
-    {
-      title: 'Web Technologies',
-      icon: Globe,
-      color: 'from-green-400 to-green-600',
-      skills: [
-        { name: 'React', featured: true },
-        { name: 'Next.js', featured: true },
-        { name: 'Node.js', featured: false },
-        { name: 'HTML/CSS', featured: true },
-        { name: 'Tailwind CSS', featured: true },
-      ],
+    { 
+      name: 'TypeScript', 
+      icon: Terminal, 
+      size: 'large',
+      gradient: 'from-purple-500 to-pink-500',
+      description: 'Type-safe development'
     },
-    {
-      title: 'Databases & Tools',
-      icon: Database,
-      color: 'from-purple-400 to-purple-600',
-      skills: [
-        { name: 'PostgreSQL', featured: false },
-        { name: 'MongoDB', featured: false },
-        { name: 'Git', featured: true },
-        { name: 'Docker', featured: false },
-        { name: 'AWS', featured: false },
-      ],
+    
+    // Medium cards
+    { 
+      name: 'Node.js', 
+      icon: Settings, 
+      size: 'medium',
+      gradient: 'from-green-500 to-emerald-500',
+      description: 'Backend development'
     },
-    {
-      title: 'Development Tools',
-      icon: Wrench,
-      color: 'from-orange-400 to-orange-600',
-      skills: [
-        { name: 'VS Code', featured: true },
-        { name: 'Figma', featured: false },
-        { name: 'Postman', featured: false },
-        { name: 'Linux', featured: false },
-        { name: 'Webpack', featured: false },
-      ],
+    { 
+      name: 'PostgreSQL', 
+      icon: Database, 
+      size: 'medium',
+      gradient: 'from-indigo-500 to-blue-500',
+      description: 'Database management'
     },
+    { 
+      name: 'AWS Cloud', 
+      icon: Cloud, 
+      size: 'medium',
+      gradient: 'from-orange-500 to-red-500',
+      description: 'Cloud infrastructure'
+    },
+    { 
+      name: 'Git & GitHub', 
+      icon: GitBranch, 
+      size: 'medium',
+      gradient: 'from-gray-600 to-gray-800',
+      description: 'Version control'
+    },
+
+    // Small cards
+    { 
+      name: 'JavaScript', 
+      icon: Zap, 
+      size: 'small',
+      gradient: 'from-yellow-500 to-orange-500'
+    },
+    { 
+      name: 'Python', 
+      icon: Code2, 
+      size: 'small',
+      gradient: 'from-green-400 to-blue-500'
+    },
+    { 
+      name: 'Docker', 
+      icon: Settings, 
+      size: 'small',
+      gradient: 'from-blue-400 to-blue-600'
+    },
+    { 
+      name: 'Figma', 
+      icon: Palette, 
+      size: 'small',
+      gradient: 'from-pink-500 to-violet-500'
+    },
+    { 
+      name: 'Mobile Dev', 
+      icon: Smartphone, 
+      size: 'small',
+      gradient: 'from-teal-500 to-green-500'
+    },
+    { 
+      name: 'AI/ML', 
+      icon: Brain, 
+      size: 'small',
+      gradient: 'from-violet-600 to-purple-600'
+    }
   ];
 
-  const SkillTag = ({ skill, delay = 0 }: { skill: { name: string; featured: boolean }; delay?: number }) => {
+  const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
+    const sizeClasses = {
+      large: 'col-span-2 row-span-2 p-8',
+      medium: 'col-span-1 row-span-2 p-6',
+      small: 'col-span-1 row-span-1 p-4'
+    };
+
+    const iconSizes = {
+      large: 48,
+      medium: 32,
+      small: 24
+    };
+
     return (
       <div
-        className={`group relative px-4 py-2 rounded-full border border-border/50 
-          bg-card hover:bg-accent hover:text-accent-foreground transition-all duration-300 
-          hover:scale-105 hover:shadow-glow cursor-default animate-fade-in
-          ${skill.featured ? 'ring-2 ring-accent/30 bg-accent/10' : ''}`}
-        style={{ animationDelay: `${delay}s` }}
+        className={`relative group overflow-hidden rounded-2xl bg-card border border-border/50 
+          hover:border-accent/50 transition-all duration-500 hover:scale-105 hover:shadow-glow
+          ${sizeClasses[skill.size]} animate-fade-in`}
+        style={{ animationDelay: `${index * 0.1}s` }}
       >
-        <div className="flex items-center gap-2">
-          {skill.featured && <Star className="w-3 h-3 fill-accent text-accent" />}
-          <span className="text-sm font-medium">{skill.name}</span>
+        {/* Background gradient */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${skill.gradient} opacity-5 
+          group-hover:opacity-10 transition-opacity duration-500`} />
+        
+        {/* Icon */}
+        <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${skill.gradient} 
+          shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110`}>
+          <skill.icon 
+            size={iconSizes[skill.size]} 
+            className="text-white"
+          />
         </div>
-        {skill.featured && (
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent/10 to-accent-glow/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        )}
+
+        {/* Content */}
+        <div className="mt-4">
+          <h3 className={`font-bold text-foreground group-hover:text-accent transition-colors duration-300
+            ${skill.size === 'large' ? 'text-xl' : skill.size === 'medium' ? 'text-lg' : 'text-base'}`}>
+            {skill.name}
+          </h3>
+          
+          {skill.description && (
+            <p className="text-muted-foreground text-sm mt-2 opacity-0 group-hover:opacity-100 
+              transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+              {skill.description}
+            </p>
+          )}
+        </div>
+
+        {/* Hover glow effect */}
+        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${skill.gradient} 
+          opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10`} />
       </div>
     );
   };
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 relative">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+    <section id="skills" ref={sectionRef} className="py-20 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+      
+      <div className="container mx-auto px-4 relative">
+        <div className="max-w-7xl mx-auto">
           {/* Section title */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -104,62 +190,24 @@ const Skills = () => {
                 Skills & Technologies
               </span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-accent mx-auto rounded-full"></div>
-            <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-              Here are the technologies and tools I work with to bring ideas to life
+            <div className="w-24 h-1 bg-gradient-accent mx-auto rounded-full mb-6"></div>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              A comprehensive toolkit for building modern digital experiences
             </p>
           </div>
 
-          {/* Skills grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {skillCategories.map((category, categoryIndex) => (
-              <div key={category.title} className="card-glow p-6 rounded-xl">
-                <div className="flex items-center mb-6">
-                  <div className={`bg-gradient-to-r ${category.color} p-3 rounded-lg mr-4 shadow-glow`}>
-                    <category.icon className="text-white" size={24} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => (
-                    <SkillTag
-                      key={skill.name}
-                      skill={skill}
-                      delay={categoryIndex * 0.1 + skillIndex * 0.05}
-                    />
-                  ))}
-                </div>
-              </div>
+          {/* Skills masonry grid */}
+          <div className="grid grid-cols-4 gap-6 auto-rows-[120px]">
+            {skills.map((skill, index) => (
+              <SkillCard key={skill.name} skill={skill} index={index} />
             ))}
           </div>
 
-          {/* Additional skills */}
-          <div className="mt-12 text-center">
-            <h3 className="text-2xl font-semibold mb-6">Additional Skills</h3>
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-              {[
-                'Agile Development',
-                'UI/UX Design',
-                'API Development',
-                'Testing',
-                'DevOps',
-                'Mobile Development',
-                'Data Analysis',
-                'Problem Solving',
-                'Team Collaboration',
-                'Project Management',
-              ].map((skill, index) => (
-                <span
-                  key={skill}
-                  className={`px-4 py-2 bg-secondary hover:bg-accent hover:text-accent-foreground 
-                    text-secondary-foreground rounded-full text-sm transition-all duration-300 
-                    hover:scale-105 cursor-default animate-fade-in-up`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {skill}
-                </span>
-              ))}
+          {/* Bottom section */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-accent/10 rounded-full border border-accent/20">
+              <Zap className="w-5 h-5 text-accent" />
+              <span className="text-accent font-medium">Always learning and adapting to new technologies</span>
             </div>
           </div>
         </div>
