@@ -77,28 +77,28 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-8 relative">
+    <section id="contact" className="py-12 relative">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Section title */}
-          <div className="text-center mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-accent to-accent-glow bg-clip-text text-transparent">
                 Get In Touch
               </span>
             </h2>
-            <div className="w-16 h-0.5 bg-gradient-accent mx-auto rounded-full"></div>
-            <p className="text-muted-foreground mt-2 max-w-lg mx-auto text-xs">
+            <div className="w-24 h-1 bg-gradient-accent mx-auto rounded-full"></div>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm">
               I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* Contact form */}
-            <div className="card-glow p-4">
-              <h3 className="text-lg font-semibold mb-3">Send me a message</h3>
+            <div className="card-glow">
+              <h3 className="text-xl font-semibold mb-4">Send me a message</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-3">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid md:grid-cols-2 gap-3">
                   <div>
                     <label htmlFor="name" className="block text-xs font-medium mb-1">
@@ -111,7 +111,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="input-glow w-full text-sm py-2"
+                      className="input-glow w-full text-sm"
                       placeholder="Your full name"
                     />
                   </div>
@@ -126,7 +126,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="input-glow w-full text-sm py-2"
+                      className="input-glow w-full text-sm"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -143,7 +143,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="input-glow w-full text-sm py-2"
+                    className="input-glow w-full text-sm"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -158,8 +158,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    rows={3}
-                    className="input-glow w-full resize-none text-sm py-2"
+                    rows={4}
+                    className="input-glow w-full resize-none text-sm"
                     placeholder="Tell me more about your project or just say hello!"
                   />
                 </div>
@@ -167,16 +167,16 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-accent-glow text-accent-foreground px-4 py-2 rounded-lg font-medium text-sm flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+                  className="w-full btn-hero flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current"></div>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current"></div>
                       <span>Sending...</span>
                     </>
                   ) : (
                     <>
-                      <Send size={16} />
+                      <Send size={20} />
                       <span>Send Message</span>
                     </>
                   )}
@@ -185,23 +185,23 @@ const Contact = () => {
             </div>
 
             {/* Contact info */}
-            <div className="space-y-4">
-              <div className="card-glow p-4">
-                <h3 className="text-lg font-semibold mb-3">Contact Information</h3>
+            <div className="space-y-5">
+              <div className="card-glow">
+                <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
 
                 <div className="space-y-2">
                   {contactInfo.map((info) => (
                     <a
                       key={info.label}
                       href={info.href}
-                      className="flex items-center space-x-2 p-2 rounded-lg hover:bg-secondary/50 transition-colors duration-300 group"
+                      className="flex items-center space-x-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors duration-300 group"
                     >
-                      <div className="bg-accent/20 p-1.5 rounded-lg group-hover:bg-accent/30 transition-colors duration-300">
-                        <info.icon className="text-accent" size={14} />
+                      <div className="bg-accent/20 p-2 rounded-lg group-hover:bg-accent/30 transition-colors duration-300">
+                        <info.icon className="text-accent" size={16} />
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground">{info.label}</p>
-                        <p className="text-foreground font-medium text-xs">{info.value}</p>
+                        <p className="text-foreground font-medium text-sm">{info.value}</p>
                       </div>
                     </a>
                   ))}
@@ -209,37 +209,37 @@ const Contact = () => {
               </div>
 
               {/* Social links */}
-              <div className="card-glow p-4">
-                <h3 className="text-lg font-semibold mb-3">Follow Me</h3>
+              <div className="card-glow">
+                <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
 
-                <div className="flex space-x-2">
+                <div className="flex space-x-3">
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`p-2 bg-secondary rounded-lg hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 hover:shadow-glow ${social.color}`}
+                      className={`p-3 bg-secondary rounded-lg hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 hover:shadow-glow ${social.color}`}
                       title={social.label}
                     >
-                      <social.icon size={16} />
+                      <social.icon size={20} />
                     </a>
                   ))}
                 </div>
 
-                <p className="text-muted-foreground mt-2 text-xs">
+                <p className="text-muted-foreground mt-3 text-xs">
                   Let's connect and build something amazing together!
                 </p>
               </div>
 
               {/* Availability */}
-              <div className="card-glow p-4">
-                <h3 className="text-lg font-semibold mb-2">Availability</h3>
+              <div className="card-glow">
+                <h3 className="text-xl font-semibold mb-3">Availability</h3>
                 <div className="flex items-center space-x-2">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-foreground text-xs">Available for new opportunities</span>
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-foreground text-sm">Available for new opportunities</span>
                 </div>
-                <p className="text-muted-foreground mt-1 text-xs">
+                <p className="text-muted-foreground mt-2 text-xs">
                   Currently seeking internships and entry-level positions in software development
                 </p>
               </div>
