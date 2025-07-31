@@ -10,7 +10,7 @@ const Projects = () => {
       technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
       category: 'Full Stack',
       demoUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/rohitmosh',
     },
     {
       title: 'Task Management App',
@@ -19,7 +19,7 @@ const Projects = () => {
       technologies: ['React', 'Firebase', 'Material-UI', 'Socket.io'],
       category: 'Frontend',
       demoUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/rohitmosh',
     },
     {
       title: 'Weather Analytics API',
@@ -28,7 +28,7 @@ const Projects = () => {
       technologies: ['Python', 'FastAPI', 'MongoDB', 'TensorFlow'],
       category: 'Backend',
       demoUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/rohitmosh',
     },
   ];
 
@@ -121,7 +121,7 @@ const Projects = () => {
               Want to see more of my work?
             </p>
             <a
-              href="https://github.com"
+              href="https://github.com/rohitmosh"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center btn-hero"

@@ -59,7 +59,7 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com',
+      href: 'https://github.com/rohitmosh',
       color: 'hover:text-white'
     },
     {

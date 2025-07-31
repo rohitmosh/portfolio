@@ -92,7 +92,7 @@ const Hero = () => {
           {/* Social links */}
           <div className="flex justify-center space-x-6 mb-12 animate-fade-in-up animate-delay-500">
             <a
-              href="https://github.com"
+              href="https://github.com/rohitmosh"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors duration-300 hover:scale-110 transform"
