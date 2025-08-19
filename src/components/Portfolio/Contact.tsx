@@ -93,9 +93,9 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             {/* Contact info */}
-            <div className="space-y-5">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="card-glow">
                 <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
 
@@ -139,18 +139,6 @@ const Contact = () => {
 
                 <p className="text-muted-foreground mt-3 text-xs">
                   Let's connect and build something amazing together!
-                </p>
-              </div>
-
-              {/* Availability */}
-              <div className="card-glow">
-                <h3 className="text-xl font-semibold mb-3">Availability</h3>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-foreground text-sm">Available for new opportunities</span>
-                </div>
-                <p className="text-muted-foreground mt-2 text-xs">
-                  Currently seeking internships and entry-level positions in software development
                 </p>
               </div>
             </div>
