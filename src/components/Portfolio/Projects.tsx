@@ -13,7 +13,7 @@ const Projects = () => {
       githubUrl: 'https://github.com/rohitmosh/lost-found-locale-connect',
     },
     {
-      title: 'NutriTrack - AI Health Platform',
+      title: 'NutriTrack - Complete Health Platform',
       description: 'A comprehensive health management system with AI-powered personalized diet planning, BMI tracking, and appointment scheduling for healthcare professionals.',
       image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80',
       technologies: ['React', 'Node.js', 'MySQL', 'JWT', 'Tailwind CSS'],
@@ -26,7 +26,7 @@ const Projects = () => {
       description: 'Revolutionary AI-powered mood music generator that analyzes emotions through voice and facial expressions to create personalized playlists.',
       image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80',
       technologies: ['React', 'TypeScript', 'AI/ML', 'shadcn/ui', 'Vite'],
-      category: 'AI/Frontend',
+      category: 'AI/Full Stack',
       demoUrl: '#',
       githubUrl: 'https://github.com/rohitmosh/vibe-sync-generator',
     },
