@@ -93,99 +93,9 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Contact form */}
-            <div className="card-glow">
-              <h3 className="text-xl font-semibold mb-4">Send me a message</h3>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-3">
-                  <div>
-                    <label htmlFor="name" className="block text-xs font-medium mb-1">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="input-glow w-full text-sm"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-medium mb-1">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="input-glow w-full text-sm"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-xs font-medium mb-1">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="input-glow w-full text-sm"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-xs font-medium mb-1">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={4}
-                    className="input-glow w-full resize-none text-sm"
-                    placeholder="Tell me more about your project or just say hello!"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-hero flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current"></div>
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send size={20} />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-
+          <div className="max-w-4xl mx-auto">
             {/* Contact info */}
-            <div className="space-y-5">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="card-glow">
                 <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
 
@@ -229,18 +139,6 @@ const Contact = () => {
 
                 <p className="text-muted-foreground mt-3 text-xs">
                   Let's connect and build something amazing together!
-                </p>
-              </div>
-
-              {/* Availability */}
-              <div className="card-glow">
-                <h3 className="text-xl font-semibold mb-3">Availability</h3>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-foreground text-sm">Available for new opportunities</span>
-                </div>
-                <p className="text-muted-foreground mt-2 text-xs">
-                  Currently seeking internships and entry-level positions in software development
                 </p>
               </div>
             </div>
