@@ -30,23 +30,16 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 relative overflow-hidden ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b border-border'
-          : 'bg-transparent'
+          ? 'bg-primary/80 backdrop-blur-md border-b border-border'
+          : 'bg-primary/60 backdrop-blur-sm'
       }`}
     >
-      {/* Glowing pulsating effect from center */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-4 h-4 bg-accent/30 rounded-full animate-ping-expand"></div>
-        <div className="absolute w-8 h-8 bg-accent/20 rounded-full animate-ping-expand-slow"></div>
-        <div className="absolute w-12 h-12 bg-accent/10 rounded-full animate-ping-expand-slower"></div>
-      </div>
-
-      <nav className="container mx-auto px-4 py-4 relative z-10">
+      <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold text-accent animate-glow">
+          <div className="text-2xl font-bold text-primary-foreground">
             Rohit Mohanty
           </div>
 
@@ -56,7 +49,7 @@ const Header = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-accent transition-colors duration-300 font-medium"
+                className="text-primary-foreground hover:text-accent transition-colors duration-300 font-medium"
               >
                 {item.label}
               </button>
@@ -65,7 +58,7 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-foreground hover:text-accent transition-colors"
+            className="md:hidden text-primary-foreground hover:text-accent transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,7 +73,7 @@ const Header = () => {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-foreground hover:text-accent transition-colors duration-300 font-medium"
+                  className="text-left text-primary-foreground hover:text-accent transition-colors duration-300 font-medium"
                 >
                   {item.label}
                 </button>
