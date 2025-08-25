@@ -444,6 +444,50 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes glow-slow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateX(-100%);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes ping-expand {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(20);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ping-expand-slow {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(15);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ping-expand-slower {
+    0% {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(10);
+      opacity: 0;
+    }
+  }
+
   /* Animation classes */
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out;
@@ -455,6 +499,22 @@ All colors MUST be HSL.
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-glow-slow {
+    animation: glow-slow 4s ease-in-out infinite;
+  }
+
+  .animate-ping-expand {
+    animation: ping-expand 3s ease-out infinite;
+  }
+
+  .animate-ping-expand-slow {
+    animation: ping-expand-slow 4s ease-out infinite;
+  }
+
+  .animate-ping-expand-slower {
+    animation: ping-expand-slower 5s ease-out infinite;
   }
 
   /* Staggered animations */

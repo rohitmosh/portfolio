@@ -30,13 +30,20 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 relative overflow-hidden ${
         isScrolled
           ? 'bg-background/80 backdrop-blur-md border-b border-border'
           : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-4 py-4">
+      {/* Glowing pulsating effect from center */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-4 h-4 bg-accent/30 rounded-full animate-ping-expand"></div>
+        <div className="absolute w-8 h-8 bg-accent/20 rounded-full animate-ping-expand-slow"></div>
+        <div className="absolute w-12 h-12 bg-accent/10 rounded-full animate-ping-expand-slower"></div>
+      </div>
+
+      <nav className="container mx-auto px-4 py-4 relative z-10">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="text-2xl font-bold text-accent animate-glow">

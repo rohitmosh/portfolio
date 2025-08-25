@@ -54,9 +54,33 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className={`card-glow group animate-fade-in-up`}
+                className={`card-glow group animate-fade-in-up flex flex-col h-full`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
+                {/* Action buttons at top */}
+                <div className="flex gap-3 justify-center mb-4">
+                  {project.demoUrl !== '#' && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors duration-300 text-sm font-medium"
+                    >
+                      <ExternalLink size={16} />
+                      Live
+                    </a>
+                  )}
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary text-foreground rounded-lg hover:bg-secondary/80 transition-colors duration-300 text-sm font-medium"
+                  >
+                    <Github size={16} />
+                    Repository
+                  </a>
+                </div>
+
                 {/* Project image */}
                 <div className="relative overflow-hidden rounded-lg mb-4">
                   <img
@@ -64,28 +88,10 @@ const Projects = () => {
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-accent text-accent-foreground rounded-full hover:scale-110 transition-transform duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-accent text-accent-foreground rounded-full hover:scale-110 transition-transform duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
                 </div>
 
                 {/* Project content */}
-                <div>
+                <div className="flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
                       {project.title}
