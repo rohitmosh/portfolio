@@ -29,20 +29,20 @@ const Skills = () => {
       skills: [
         { name: 'JavaScript', level: 90 },
         { name: 'TypeScript', level: 85 },
-        { name: 'Python', level: 80 },
+        { name: 'Python', level: 90 },
         { name: 'Java', level: 75 },
-        { name: 'C', level: 70 },
+        { name: 'C', level: 95 },
       ],
     },
     {
       title: 'Web Technologies',
       icon: Globe,
       skills: [
-        { name: 'React', level: 90 },
+        { name: 'React', level: 95 },
         { name: 'Next.js', level: 85 },
         { name: 'Node.js', level: 80 },
         { name: 'HTML/CSS', level: 95 },
-        { name: 'Tailwind CSS', level: 90 },
+        { name: 'Tailwind CSS', level: 95 },
       ],
     },
     {
@@ -50,10 +50,10 @@ const Skills = () => {
       icon: Database,
       skills: [
         { name: 'PostgreSQL', level: 80 },
-        { name: 'MongoDB', level: 75 },
-        { name: 'Git', level: 90 },
-        { name: 'MySQL', level: 70 },
-        { name: 'Vercel', level: 65 },
+        { name: 'MongoDB', level: 95 },
+        { name: 'Git', level: 95 },
+        { name: 'MySQL', level: 95 },
+        { name: 'Vercel', level: 90 },
       ],
     },
     {
@@ -61,10 +61,10 @@ const Skills = () => {
       icon: Wrench,
       skills: [
         { name: 'VS Code', level: 95 },
-        { name: 'Figma', level: 80 },
-        { name: 'Adobe PS', level: 85 },
+        { name: 'Figma', level: 95 },
+        { name: 'Adobe PS', level: 95 },
         { name: 'Linux', level: 75 },
-        { name: 'PyCharm', level: 70 },
+        { name: 'PyCharm', level: 80 },
       ],
     },
   ];
