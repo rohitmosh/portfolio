@@ -523,4 +523,161 @@ All colors MUST be HSL.
   .animate-delay-300 { animation-delay: 0.3s; }
   .animate-delay-400 { animation-delay: 0.4s; }
   .animate-delay-500 { animation-delay: 0.5s; }
+
+  /* Enhanced Background Animations */
+  
+  /* Floating particles */
+  .floating-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, hsl(190 95% 55% / 0.8) 0%, hsl(190 95% 55% / 0.4) 50%, transparent 100%);
+    border-radius: 50%;
+    animation: float-particle 20s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Animated grid background */
+  .grid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(hsl(190 95% 55% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(190 95% 55% / 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 30s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Flowing lines */
+  .flowing-line {
+    position: absolute;
+    width: 2px;
+    height: 100vh;
+    background: linear-gradient(to bottom, 
+      transparent 0%, 
+      hsl(190 95% 55% / 0.4) 20%, 
+      hsl(190 95% 55% / 0.6) 50%, 
+      hsl(190 95% 55% / 0.4) 80%, 
+      transparent 100%);
+    animation: flow-vertical 15s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .flowing-line-1 {
+    left: 20%;
+    animation-delay: 0s;
+    animation-duration: 18s;
+  }
+
+  .flowing-line-2 {
+    left: 60%;
+    animation-delay: -6s;
+    animation-duration: 22s;
+  }
+
+  .flowing-line-3 {
+    left: 85%;
+    animation-delay: -12s;
+    animation-duration: 20s;
+  }
+
+  /* Pulsating waves */
+  .wave-pulse {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(190 95% 55% / 0.1) 0%, hsl(190 95% 55% / 0.05) 40%, transparent 70%);
+    animation: wave-expand 8s ease-out infinite;
+    pointer-events: none;
+  }
+
+  .wave-pulse-1 {
+    width: 300px;
+    height: 300px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .wave-pulse-2 {
+    width: 400px;
+    height: 400px;
+    top: 60%;
+    right: 15%;
+    animation-delay: -3s;
+  }
+
+  .wave-pulse-3 {
+    width: 350px;
+    height: 350px;
+    bottom: 20%;
+    left: 50%;
+    animation-delay: -6s;
+  }
+
+  /* New keyframe animations */
+  @keyframes float-particle {
+    0% {
+      transform: translateY(100vh) translateX(0px) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(90vh) translateX(10px) scale(1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(-10vh) translateX(-10px) scale(1);
+    }
+    100% {
+      transform: translateY(-20vh) translateX(0px) scale(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes grid-move {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  @keyframes flow-vertical {
+    0% {
+      transform: translateY(-100vh) scaleY(0);
+      opacity: 0;
+    }
+    20% {
+      transform: translateY(-50vh) scaleY(1);
+      opacity: 1;
+    }
+    80% {
+      transform: translateY(50vh) scaleY(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) scaleY(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes wave-expand {
+    0% {
+      transform: scale(0.5);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
 }

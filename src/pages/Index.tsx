@@ -11,6 +11,19 @@ const Index = () => {
     <div className="min-h-screen bg-background relative">
       {/* Animated Background */}
       <div className="animated-bg">
+        {/* Animated grid background */}
+        <div className="grid-background"></div>
+        
+        {/* Flowing lines */}
+        <div className="flowing-line flowing-line-1"></div>
+        <div className="flowing-line flowing-line-2"></div>
+        <div className="flowing-line flowing-line-3"></div>
+        
+        {/* Pulsating waves */}
+        <div className="wave-pulse wave-pulse-1"></div>
+        <div className="wave-pulse wave-pulse-2"></div>
+        <div className="wave-pulse wave-pulse-3"></div>
+        
         {/* More floating orbs for better coverage */}
         <div className="floating-orb" style={{left: '10%', top: '5vh', width: '150px', height: '150px', animationDelay: '0s'}}></div>
         <div className="floating-orb" style={{left: '80%', top: '15vh', width: '120px', height: '120px', animationDelay: '2s'}}></div>
@@ -37,6 +50,20 @@ const Index = () => {
         <div className="pulsing-orb" style={{left: '70%', top: '110vh', width: '170px', height: '170px', animationDelay: '3s'}}></div>
         <div className="pulsing-orb" style={{left: '30%', top: '130vh', width: '200px', height: '200px', animationDelay: '5s'}}></div>
         <div className="pulsing-orb" style={{left: '85%', top: '150vh', width: '185px', height: '185px', animationDelay: '7s'}}></div>
+        
+        {/* Floating particles */}
+        {Array.from({length: 20}).map((_, i) => (
+          <div
+            key={`particle-${i}`}
+            className="floating-particle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 200}vh`,
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${15 + Math.random() * 10}s`
+            }}
+          ></div>
+        ))}
       </div>
 
       <Header />
