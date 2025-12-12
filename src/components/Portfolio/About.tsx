@@ -23,15 +23,14 @@ const About = () => {
                 digital experiences. 
               </p>
               
-              {/* Download Resume button */}
+              {/* Show Resume button */}
               <div className="pt-4">
-                <a
-                  href="/resume.pdf"
-                  download
+                <button
+                  onClick={() => window.open('/resume.pdf', '_blank')}
                   className="inline-flex items-center btn-hero"
                 >
-                  Download Resume
-                </a>
+                  Show Resume
+                </button>
               </div>
             </div>
 
