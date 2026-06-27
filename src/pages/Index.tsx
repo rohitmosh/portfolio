@@ -1,77 +1,79 @@
+import { useEffect } from 'react';
 import Header from '@/components/Portfolio/Header';
 import Hero from '@/components/Portfolio/Hero';
 import About from '@/components/Portfolio/About';
 import Skills from '@/components/Portfolio/Skills';
 import Projects from '@/components/Portfolio/Projects';
+import Experience from '@/components/Portfolio/Experience';
 import Contact from '@/components/Portfolio/Contact';
 import Footer from '@/components/Portfolio/Footer';
 
 const Index = () => {
+  // Intersection Observer for Scroll Reveals
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15,
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-active');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    const targets = document.querySelectorAll('.reveal-on-scroll');
+    targets.forEach((target) => observer.observe(target));
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Scroll Progress Indicator Fallback (e.g. for Firefox)
+  useEffect(() => {
+    const progressElement = document.querySelector('.scroll-progress') as HTMLElement;
+    if (!progressElement) return;
+
+    const handleScroll = () => {
+      if (window.CSS && window.CSS.supports && window.CSS.supports('animation-timeline', 'scroll()')) {
+        // Browser supports native CSS scroll-driven animations, skip JS fallback
+        return;
+      }
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable <= 0) return;
+      const scrolled = window.scrollY;
+      const percentage = scrolled / scrollable;
+      progressElement.style.transform = `scaleX(${percentage})`;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Run once on load
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Animated Background */}
-      <div className="animated-bg">
-        {/* Animated grid background */}
-        <div className="grid-background"></div>
-        
-        {/* Flowing lines */}
-        <div className="flowing-line flowing-line-1"></div>
-        <div className="flowing-line flowing-line-2"></div>
-        <div className="flowing-line flowing-line-3"></div>
-        
-        {/* Pulsating waves */}
-        <div className="wave-pulse wave-pulse-1"></div>
-        <div className="wave-pulse wave-pulse-2"></div>
-        <div className="wave-pulse wave-pulse-3"></div>
-        
-        {/* More floating orbs for better coverage */}
-        <div className="floating-orb" style={{left: '10%', top: '5vh', width: '150px', height: '150px', animationDelay: '0s'}}></div>
-        <div className="floating-orb" style={{left: '80%', top: '15vh', width: '120px', height: '120px', animationDelay: '2s'}}></div>
-        <div className="floating-orb" style={{left: '30%', top: '25vh', width: '180px', height: '180px', animationDelay: '4s'}}></div>
-        <div className="floating-orb" style={{left: '70%', top: '35vh', width: '140px', height: '140px', animationDelay: '6s'}}></div>
-        <div className="floating-orb" style={{left: '15%', top: '45vh', width: '160px', height: '160px', animationDelay: '8s'}}></div>
-        <div className="floating-orb" style={{left: '85%', top: '55vh', width: '130px', height: '130px', animationDelay: '10s'}}></div>
-        <div className="floating-orb" style={{left: '40%', top: '65vh', width: '170px', height: '170px', animationDelay: '12s'}}></div>
-        <div className="floating-orb" style={{left: '60%', top: '75vh', width: '145px', height: '145px', animationDelay: '14s'}}></div>
-        <div className="floating-orb" style={{left: '20%', top: '85vh', width: '155px', height: '155px', animationDelay: '1s'}}></div>
-        <div className="floating-orb" style={{left: '75%', top: '95vh', width: '135px', height: '135px', animationDelay: '3s'}}></div>
-        <div className="floating-orb" style={{left: '45%', top: '105vh', width: '165px', height: '165px', animationDelay: '5s'}}></div>
-        <div className="floating-orb" style={{left: '25%', top: '115vh', width: '125px', height: '125px', animationDelay: '7s'}}></div>
-        <div className="floating-orb" style={{left: '65%', top: '125vh', width: '175px', height: '175px', animationDelay: '9s'}}></div>
-        <div className="floating-orb" style={{left: '35%', top: '135vh', width: '150px', height: '150px', animationDelay: '11s'}}></div>
-        <div className="floating-orb" style={{left: '80%', top: '145vh', width: '140px', height: '140px', animationDelay: '13s'}}></div>
+    <div className="min-h-screen bg-background relative text-zinc-100 overflow-x-hidden">
+      {/* Scroll Progress Line */}
+      <div className="scroll-progress" aria-hidden="true" />
 
-        {/* More pulsing orbs for better coverage */}
-        <div className="pulsing-orb" style={{left: '50%', top: '10vh', width: '200px', height: '200px', animationDelay: '0s'}}></div>
-        <div className="pulsing-orb" style={{left: '90%', top: '30vh', width: '180px', height: '180px', animationDelay: '2s'}}></div>
-        <div className="pulsing-orb" style={{left: '5%', top: '50vh', width: '220px', height: '220px', animationDelay: '4s'}}></div>
-        <div className="pulsing-orb" style={{left: '55%', top: '70vh', width: '190px', height: '190px', animationDelay: '6s'}}></div>
-        <div className="pulsing-orb" style={{left: '10%', top: '90vh', width: '210px', height: '210px', animationDelay: '1s'}}></div>
-        <div className="pulsing-orb" style={{left: '70%', top: '110vh', width: '170px', height: '170px', animationDelay: '3s'}}></div>
-        <div className="pulsing-orb" style={{left: '30%', top: '130vh', width: '200px', height: '200px', animationDelay: '5s'}}></div>
-        <div className="pulsing-orb" style={{left: '85%', top: '150vh', width: '185px', height: '185px', animationDelay: '7s'}}></div>
-        
-        {/* Floating particles */}
-        {Array.from({length: 20}).map((_, i) => (
-          <div
-            key={`particle-${i}`}
-            className="floating-particle"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 200}vh`,
-              animationDelay: `${Math.random() * 10}s`,
-              animationDuration: `${15 + Math.random() * 10}s`
-            }}
-          ></div>
-        ))}
-      </div>
+      {/* Subtle Dot Grid Background */}
+      <div className="dot-grid fixed inset-0 z-[-1] pointer-events-none" />
 
+      {/* Navigation & Layout Sections */}
       <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

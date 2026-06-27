@@ -7,81 +7,130 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
+    { label: 'About Me', href: '#about' },
     { label: 'Projects', href: '#projects' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'Skills', href: '#skills' },
     { label: 'Contact', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
       setIsMobileMenuOpen(false);
     }
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-primary/80 backdrop-blur-md border-b border-border'
-          : 'bg-primary/60 backdrop-blur-sm'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-550 ${isScrolled
+          ? 'bg-zinc-950/85 backdrop-blur-md border-b border-zinc-900/80 py-5'
+          : 'bg-transparent py-8'
+        }`}
     >
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="text-2xl font-bold text-primary-foreground">
-            Rohit Mohanty
-          </div>
+      <nav className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
+        {/* Monogram Logo */}
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="text-2xl font-bold tracking-tight text-zinc-100 transition-colors duration-300 hover:text-indigo-400"
+        >
+          RM<span className="text-indigo-400 font-extrabold">.</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-10">
+          <div className="flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-primary-foreground hover:text-accent transition-colors duration-300 font-medium"
+                className="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-base font-semibold"
               >
                 {item.label}
               </button>
             ))}
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden text-primary-foreground hover:text-accent transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          <span className="h-5 w-[1px] bg-zinc-800" aria-hidden="true" />
+
+          {/* Ghost Resume Button */}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-mono tracking-wider text-zinc-300 border border-zinc-850 px-4.5 py-2.5 rounded-lg hover:border-indigo-500/40 hover:text-zinc-100 transition-all duration-300 hover:bg-indigo-500/5"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            RESUME
+          </a>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border animate-fade-in-up">
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-left text-primary-foreground hover:text-accent transition-colors duration-300 font-medium"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-zinc-400 hover:text-zinc-100 transition-colors duration-300"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </nav>
+
+      {/* Premium Full-Screen Mobile Navigation Overlay */}
+      <div
+        className={`fixed inset-x-0 top-[72px] bottom-0 bg-zinc-950/98 backdrop-blur-lg z-40 transition-all duration-500 md:hidden flex flex-col justify-between p-8 border-t border-zinc-900 ${isMobileMenuOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 -translate-y-4 pointer-events-none'
+          }`}
+      >
+        <div className="flex flex-col space-y-8 pt-8">
+          {navItems.map((item, index) => (
+            <button
+              key={item.label}
+              onClick={() => scrollToSection(item.href)}
+              className="text-left text-3xl font-semibold text-zinc-400 hover:text-zinc-100 transition-colors duration-300"
+              style={{
+                transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms',
+                transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(-12px)',
+                transitionProperty: 'all'
+              }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="border-t border-zinc-900 pt-6 pb-16 flex flex-col space-y-5">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full text-center py-4 bg-zinc-900 text-zinc-100 border border-zinc-800 rounded-xl font-mono text-base tracking-wider font-semibold"
+          >
+            VIEW RESUME
+          </a>
+          <p className="text-zinc-600 text-xs text-center font-mono">
+            Designed for digital precision.
+          </p>
+        </div>
+      </div>
     </header>
   );
 };

@@ -1,143 +1,83 @@
-import { useState, useEffect, useRef } from 'react';
-import { Code, Database, Globe, Wrench } from 'lucide-react';
-
 const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+  const skillGroups = [
+    {
+      category: 'Languages',
+      description: 'Foundational syntax and compilers used for high-level scripting and systems programming.',
+      skills: ['JavaScript (ES6+)', 'TypeScript', 'Python', 'Java', 'C']
+    },
+    {
+      category: 'Frontend Architecture',
+      description: 'Building fast, accessible interfaces with robust state structures and clean CSS systems.',
+      skills: ['React', 'Next.js', 'Tailwind CSS', 'HTML5 / CSS3', 'shadcn/ui', 'Vite']
+    },
+    {
+      category: 'Backend & APIs',
+      description: 'Designing data-transfer routes, secure sessions, and scalable endpoint networks.',
+      skills: ['Node.js', 'Express', 'FastAPI', 'RESTful APIs', 'JWT Auth']
+    },
+    {
+      category: 'Databases & Storage',
+      description: 'Modeling relational schemas, optimizing query execution, and managing dynamic cloud tables.',
+      skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Supabase', 'SQL Queries']
+    },
+    {
+      category: 'AI & Intelligence',
+      description: 'Integrating client-side inference pipelines and configuring large-language model pipelines.',
+      skills: ['Transformers.js', 'OpenAI API', 'Gemini API', 'Prompt Design']
+    },
+    {
+      category: 'Developer Workflows',
+      description: 'Managing source versioning, local virtualization, and production cloud pipelines.',
+      skills: ['Git / GitHub', 'Docker', 'Linux CLI', 'Figma', 'VS Code', 'Vercel']
     }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const skillCategories = [
-    {
-      title: 'Programming Languages',
-      icon: Code,
-      skills: [
-        { name: 'JavaScript', level: 90 },
-        { name: 'TypeScript', level: 85 },
-        { name: 'Python', level: 90 },
-        { name: 'Java', level: 75 },
-        { name: 'C', level: 95 },
-      ],
-    },
-    {
-      title: 'Web Technologies',
-      icon: Globe,
-      skills: [
-        { name: 'React', level: 95 },
-        { name: 'Next.js', level: 85 },
-        { name: 'Node.js', level: 80 },
-        { name: 'HTML/CSS', level: 95 },
-        { name: 'Tailwind CSS', level: 95 },
-      ],
-    },
-    {
-      title: 'Databases & Tools',
-      icon: Database,
-      skills: [
-        { name: 'PostgreSQL', level: 80 },
-        { name: 'MongoDB', level: 95 },
-        { name: 'Git', level: 95 },
-        { name: 'MySQL', level: 95 },
-        { name: 'Vercel', level: 90 },
-      ],
-    },
-    {
-      title: 'Development Tools',
-      icon: Wrench,
-      skills: [
-        { name: 'VS Code', level: 95 },
-        { name: 'Figma', level: 95 },
-        { name: 'Adobe PS', level: 95 },
-        { name: 'Linux', level: 75 },
-        { name: 'PyCharm', level: 80 },
-      ],
-    },
   ];
 
-  const ProgressBar = ({ skill, delay = 0 }: { skill: { name: string; level: number }; delay?: number }) => {
-    const [progress, setProgress] = useState(0);
-
-    useEffect(() => {
-      if (isVisible) {
-        const timer = setTimeout(() => {
-          setProgress(skill.level);
-        }, delay);
-        return () => clearTimeout(timer);
-      }
-    }, [isVisible, skill.level, delay]);
-
-    return (
-      <div className="mb-4">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-foreground font-medium">{skill.name}</span>
-        </div>
-        <div className="progress-glow">
-          <div
-            className="progress-fill transition-all duration-1000 ease-out"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      </div>
-    );
-  };
-
   return (
-    <section id="skills" ref={sectionRef} className="py-20 relative">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Section title */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-accent to-accent-glow bg-clip-text text-transparent">
-                Skills & Technologies
-              </span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-accent mx-auto rounded-full"></div>
-            <p className="text-muted-foreground mt-6 max-w-2xl mx-auto">
-              Here are the technologies and tools I work with to bring ideas to life
-            </p>
-          </div>
+    <section id="skills" className="py-36 relative border-t border-zinc-900">
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Section Label */}
+        <span className="section-label text-indigo-400 font-semibold tracking-wider">// stack metrics</span>
 
-          {/* Skills grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {skillCategories.map((category, categoryIndex) => (
-              <div key={category.title} className="card-glow">
-                <div className="flex items-center mb-6">
-                  <div className="bg-accent/20 p-3 rounded-lg mr-4">
-                    <category.icon className="text-accent" size={24} />
-                  </div>
-                  <h3 className="text-xl font-semibold">{category.title}</h3>
-                </div>
+        {/* Title */}
+        <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-100">
+            Skills & Competency
+          </h2>
+          <p className="text-zinc-400 text-base mt-3 md:mt-0 max-w-md font-light leading-relaxed">
+            Focusing on architectural strength, system efficiency, and modern design patterns.
+          </p>
+        </div>
 
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <ProgressBar
-                      key={skill.name}
-                      skill={skill}
-                      delay={categoryIndex * 200 + skillIndex * 100}
-                    />
-                  ))}
-                </div>
+        {/* Skills Tag Grid */}
+        <div className="grid md:grid-cols-2 gap-x-16 gap-y-16">
+          {skillGroups.map((group, index) => (
+            <div 
+              key={group.category} 
+              className="space-y-6 reveal-on-scroll"
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              <div>
+                <h3 className="text-lg font-bold tracking-tight text-zinc-100">
+                  {group.category}
+                </h3>
+                <p className="text-sm md:text-base text-zinc-400 mt-2 leading-relaxed font-light">
+                  {group.description}
+                </p>
               </div>
-            ))}
-          </div>
 
-
+              {/* Flex Tags */}
+              <div className="flex flex-wrap gap-3 pt-1">
+                {group.skills.map((skill) => (
+                  <span 
+                    key={skill} 
+                    className="tag font-mono text-xs py-2 px-4 font-semibold hover:border-indigo-500/40"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

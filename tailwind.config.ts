@@ -12,15 +12,30 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: '2.5rem',
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1600px'
 			}
 		},
 		extend: {
+			fontSize: {
+				xs: ['0.82rem', { lineHeight: '1.4' }],
+				sm: ['0.98rem', { lineHeight: '1.5' }],
+				base: ['1.12rem', { lineHeight: '1.6' }],
+				lg: ['1.28rem', { lineHeight: '1.5' }],
+				xl: ['1.45rem', { lineHeight: '1.4' }],
+				'2xl': ['1.72rem', { lineHeight: '1.3' }],
+				'3xl': ['2.15rem', { lineHeight: '1.2' }],
+				'4xl': ['2.75rem', { lineHeight: '1.15' }],
+				'5xl': ['3.6rem', { lineHeight: '1.1' }],
+				'6xl': ['4.5rem', { lineHeight: '1.05' }],
+				'7xl': ['5.5rem', { lineHeight: '1' }],
+				'8xl': ['7.2rem', { lineHeight: '1' }],
+				'9xl': ['9rem', { lineHeight: '1' }],
+			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				mono: ['JetBrains Mono', 'monospace'],
+				sans: ['Geist', 'Inter', 'sans-serif'],
+				mono: ['Geist Mono', 'JetBrains Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

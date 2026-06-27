@@ -1,101 +1,68 @@
-import { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
-  const [currentText, setCurrentText] = useState('');
-  const [textIndex, setTextIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-
-  const texts = [
-    'Computer Science Student',
-    'Web Developer',
-    'Problem Solver',
-    'Tech Enthusiast'
-  ];
-
-  useEffect(() => {
-    const currentFullText = texts[textIndex];
-    
-    if (charIndex < currentFullText.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText(currentFullText.slice(0, charIndex + 1));
-        setCharIndex(charIndex + 1);
-      }, 100);
-      return () => clearTimeout(timeout);
-    } else {
-      const timeout = setTimeout(() => {
-        setCharIndex(0);
-        setTextIndex((textIndex + 1) % texts.length);
-        setCurrentText('');
-      }, 2000);
-      return () => clearTimeout(timeout);
-    }
-  }, [charIndex, textIndex]);
-
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated background glow */}
-      <div className="absolute inset-0 bg-glow opacity-30"></div>
-      <div className="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-glow"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary-glow/30 rounded-full blur-3xl animate-glow animate-delay-300"></div>
+    <section className="min-h-screen flex items-center relative overflow-hidden pt-28 pb-20">
+      {/* Dynamic top gradient line for modern finish */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto">
-          {/* Greeting */}
-          <p className="text-accent text-lg mb-4 animate-fade-in-up">
-            Hello, I'm
-          </p>
+      <div className="container mx-auto px-6 max-w-6xl z-10">
+        <div className="max-w-4xl space-y-10 animate-fade-up">
 
-          {/* Name */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up animate-delay-100">
-            <span className="bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
+
+          {/* Heading block */}
+          <div className="space-y-6">
+            <h1 className="text-7xl md:text-9xl font-bold tracking-tight text-zinc-100 leading-[0.9]">
               Rohit Mohanty
-            </span>
-          </h1>
-
-          {/* Animated role */}
-          <div className="h-16 mb-8 animate-fade-in-up animate-delay-200">
-            <h2 className="text-2xl md:text-3xl text-muted-foreground">
-              <span className="typing">{currentText}</span>
-            </h2>
+            </h1>
+            <p className="text-2xl md:text-3xl font-medium tracking-tight text-indigo-300 font-mono">
+              Software Dev
+            </p>
           </div>
 
-          {/* Description */}
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-up animate-delay-300">
-            Passionate about GenAI, Problem Solving, and Graphic Design.
-            Currently pursuing my degree in Computer & Communication Engineering with a focus on Web Development.
+          {/* Editorial Tagline */}
+          <p className="text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-3xl font-light">
+            I build software that prioritizes performance, usability, and thoughtful engineering. I enjoy system design, web dev, and product engineering.
           </p>
 
-          {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up animate-delay-400">
+          {/* CTA Group */}
+          <div className="flex flex-wrap items-center gap-5 pt-4">
             <button
               onClick={() => scrollToSection('#projects')}
-              className="btn-hero"
+              className="btn-primary"
             >
-              View My Work
+              View Work
             </button>
             <button
               onClick={() => scrollToSection('#contact')}
-              className="border border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-glow"
+              className="btn-ghost border border-zinc-800 hover:border-zinc-700"
             >
-              Get In Touch
+              Get in Touch
             </button>
           </div>
 
-          {/* Social links */}
-          <div className="flex justify-center space-x-6 mb-12 animate-fade-in-up animate-delay-500">
+          {/* Minimal Social & Contact Links */}
+          <div className="flex items-center gap-6 pt-10 border-t border-zinc-900 max-w-lg">
             <a
               href="https://github.com/rohitmosh"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-accent transition-colors duration-300 hover:scale-110 transform"
+              className="text-zinc-500 hover:text-indigo-400 transition-colors duration-300"
+              aria-label="GitHub"
             >
               <Github size={24} />
             </a>
@@ -103,26 +70,31 @@ const Hero = () => {
               href="https://www.linkedin.com/in/rohitmohanty9/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-accent transition-colors duration-300 hover:scale-110 transform"
+              className="text-zinc-500 hover:text-indigo-400 transition-colors duration-300"
+              aria-label="LinkedIn"
             >
               <Linkedin size={24} />
             </a>
             <a
               href="mailto:rohitm6002@gmail.com"
-              className="text-muted-foreground hover:text-accent transition-colors duration-300 hover:scale-110 transform"
+              className="text-zinc-500 hover:text-indigo-400 transition-colors duration-300"
+              aria-label="Email"
             >
               <Mail size={24} />
             </a>
           </div>
-
-          {/* Scroll indicator */}
-          <button
-            onClick={() => scrollToSection('#about')}
-            className="animate-bounce text-accent hover:text-accent-glow transition-colors duration-300"
-          >
-            <ChevronDown size={32} />
-          </button>
         </div>
+      </div>
+
+      {/* Down arrow link positioned lower-right */}
+      <div className="absolute bottom-12 right-8 md:right-16 hidden sm:block animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <button
+          onClick={() => scrollToSection('#about')}
+          className="text-zinc-500 hover:text-indigo-400 hover:border-indigo-500/30 p-3 rounded-full border border-zinc-900 transition-all duration-500"
+          aria-label="Scroll down"
+        >
+          <ArrowDown size={18} />
+        </button>
       </div>
     </section>
   );
