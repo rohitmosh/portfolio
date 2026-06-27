@@ -35,7 +35,7 @@ const Contact = () => {
 
           {/* Left Column: Narrative Headline (span 6) */}
           <div className="md:col-span-6 space-y-8 reveal-on-scroll">
-            <span className="section-label text-indigo-400 font-semibold tracking-wider">// connection</span>
+            <span className="section-label text-indigo-400 text-base md:text-xl font-semibold tracking-wider">// connect</span>
             <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-zinc-100 leading-tight">
               Let's start a conversation.
             </h2>

@@ -7,6 +7,7 @@ import Projects from '@/components/Portfolio/Projects';
 import Experience from '@/components/Portfolio/Experience';
 import Contact from '@/components/Portfolio/Contact';
 import Footer from '@/components/Portfolio/Footer';
+import MagneticGrid from '@/components/Portfolio/MagneticGrid';
 
 const Index = () => {
   // Intersection Observer for Scroll Reveals
@@ -61,12 +62,12 @@ const Index = () => {
       {/* Scroll Progress Line */}
       <div className="scroll-progress" aria-hidden="true" />
 
-      {/* Subtle Dot Grid Background */}
-      <div className="dot-grid fixed inset-0 z-[-1] pointer-events-none" />
+      {/* Interactive Magnetic Grid Canvas Background */}
+      <MagneticGrid />
 
       {/* Navigation & Layout Sections */}
       <Header />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Projects />

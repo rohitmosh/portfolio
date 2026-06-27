@@ -49,7 +49,7 @@ const Hero = () => {
             </button>
             <button
               onClick={() => scrollToSection('#contact')}
-              className="btn-ghost border border-zinc-800 hover:border-zinc-700"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-base font-semibold hover:bg-indigo-500/20 hover:border-indigo-400 hover:text-indigo-100 hover:shadow-[0_0_20px_rgba(99,102,241,0.25)] transition-all duration-300 active:scale-95"
             >
               Get in Touch
             </button>

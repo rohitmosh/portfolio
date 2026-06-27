@@ -51,7 +51,7 @@ const Header = () => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="text-2xl font-bold tracking-tight text-zinc-100 transition-colors duration-300 hover:text-indigo-400"
+          className="text-3xl font-bold tracking-tight text-zinc-100 transition-colors duration-300 hover:text-indigo-400"
         >
           RM<span className="text-indigo-400 font-extrabold">.</span>
         </a>
@@ -77,7 +77,7 @@ const Header = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-mono tracking-wider text-zinc-300 border border-zinc-850 px-4.5 py-2.5 rounded-lg hover:border-indigo-500/40 hover:text-zinc-100 transition-all duration-300 hover:bg-indigo-500/5"
+            className="text-xs font-mono tracking-wider text-indigo-300 border border-indigo-500/30 px-4.5 py-2.5 rounded-lg hover:border-indigo-400 hover:text-indigo-100 transition-all duration-300 bg-indigo-500/10 hover:bg-indigo-500/20 hover:shadow-[0_0_15px_rgba(99,102,241,0.25)]"
           >
             RESUME
           </a>

@@ -41,7 +41,7 @@ const About = () => {
           <div className="md:col-span-7 space-y-10 reveal-on-scroll" style={{ transitionDelay: '100ms' }}>
             <div>
 
-              <span className="section-label text-indigo-400 font-semibold">// about me</span>
+              <span className="section-label text-indigo-400 text-base md:text-xl font-semibold">// about me</span>
 
             </div>
 
@@ -96,7 +96,7 @@ const About = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary inline-flex items-center gap-2.5 text-sm font-mono py-3 px-8"
+                className="inline-flex items-center gap-2.5 px-8 py-3 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-sm font-mono hover:bg-indigo-500/20 hover:border-indigo-400 hover:text-indigo-200 hover:shadow-[0_0_20px_rgba(99,102,241,0.25)] transition-all duration-300 active:scale-95 font-semibold"
               >
                 <FileText size={16} /> SHOW FULL RESUME
               </a>

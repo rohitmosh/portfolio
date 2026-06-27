@@ -47,7 +47,7 @@ const Experience = () => {
     <section id="experience" className="py-36 relative border-t border-zinc-900">
       <div className="container mx-auto px-6 max-w-6xl">
         {/* Section Label */}
-        <span className="section-label text-indigo-400 font-semibold tracking-wider">// career path</span>
+        <span className="section-label text-indigo-400 text-base md:text-xl font-semibold tracking-wider">// career path</span>
 
         {/* Title */}
         <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-20">

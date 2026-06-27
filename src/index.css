@@ -90,6 +90,7 @@
   }
 
   /* Scroll Progress Line */
+  /* Scroll Progress Line */
   .scroll-progress {
     position: fixed;
     top: 0;
@@ -97,16 +98,18 @@
     right: 0;
     height: 5px;
     background: linear-gradient(90deg, #6366f1 0%, #c084fc 50%, #6366f1 100%);
+    background-size: 200% 100%;
     box-shadow: 0 1px 12px rgba(99, 102, 241, 0.95), 0 0 6px rgba(192, 132, 252, 0.6);
     z-index: 100;
     transform-origin: 0% 50%;
     transform: scaleX(0);
+    animation: progress-shimmer 3s linear infinite;
   }
 
   @supports (animation-timeline: scroll()) {
     .scroll-progress {
-      animation: grow-progress auto linear;
-      animation-timeline: scroll(y root);
+      animation: grow-progress auto linear, progress-shimmer 3s linear infinite;
+      animation-timeline: scroll(y root), auto;
     }
   }
 
@@ -207,4 +210,10 @@
 
 .animate-blur-in {
   animation: blurIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes progress-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Left Column: Copyright */}
           <div className="text-center md:text-left">
-            <p className="text-sm font-mono text-zinc-500">
+            <p className="text-base font-mono text-zinc-500">
               © {new Date().getFullYear()} Rohit Mohanty.
             </p>
           </div>
