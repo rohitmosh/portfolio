@@ -27,7 +27,10 @@ const Hero = () => {
           {/* Heading block */}
           <div className="space-y-6">
             <h1 className="text-7xl md:text-9xl font-bold tracking-tight text-zinc-100 leading-[0.9]">
-              Rohit Mohanty
+              Rohit
+            </h1>
+            <h1 className="text-7xl md:text-9xl font-bold tracking-tight text-zinc-100 leading-[0.9]">
+              Mohanty
             </h1>
             <p className="text-2xl md:text-3xl font-medium tracking-tight text-indigo-300 font-mono">
               Software Dev
