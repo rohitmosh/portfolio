@@ -221,7 +221,7 @@ const Projects = () => {
 
                       {/* Cryptography Mockup - Colorful Scrambling Matrices */}
                       {project.mockupType === 'crypto' && (
-                        <div className="w-full h-full flex flex-col justify-between border border-zinc-800/80 rounded-lg bg-zinc-900/30 p-6">
+                        <div className="w-full h-full relative z-10 flex flex-col justify-between border border-zinc-800/80 rounded-lg bg-zinc-900/30 p-6">
                           <div className="text-[11px] text-zinc-400 flex justify-between items-center font-semibold">
                             <span>CRYPTOGRAPHIC SECURITY PLATFORM</span>
                             <span className="flex items-center gap-1.5 text-rose-400 bg-rose-500/10 border border-rose-500/20 px-2.5 py-0.5 rounded text-[9px] font-bold">
@@ -268,7 +268,7 @@ const Projects = () => {
 
                       {/* Chart Mockup - Colorful Gradient Bars */}
                       {project.mockupType === 'chart' && (
-                        <div className="w-full h-full flex flex-col justify-between border border-zinc-800/80 rounded-lg bg-zinc-900/30 p-6">
+                        <div className="w-full h-full relative z-10 flex flex-col justify-between border border-zinc-800/80 rounded-lg bg-zinc-900/30 p-6">
                           <div className="text-[11px] text-zinc-400 flex justify-between items-center font-semibold">
                             <span>NUTRITIONAL METRICS LOG</span>
                             <span className="text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-0.5 rounded text-[9px]">STATUS: COMPLETED</span>
